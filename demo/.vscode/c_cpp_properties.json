@@ -1,0 +1,42 @@
+{
+    "version": 4,
+    "enableConfigurationSquiggles": true,
+    "configurations": [
+        {
+            "name": "bs21",
+            "compileCommands": "${config:xfusion.XF_ROOT}/sdks/bs2x_sdk/output/bs21e/acore/bs21e-sle-ble-slp-central-peripheral/compile_commands.json"
+        },
+        {
+            "name": "esp32",
+            "compilerPath": "${env:HOME}/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "cStandard": "gnu99",
+            "cppStandard": "gnu++98",
+            "compileCommands": "${config:xfusion.XF_ROOT}/boards/espressif/esp32/build/compile_commands.json"
+        },
+        {
+            "name": "ws63",
+            "compilerPath": "${config:xfusion.XF_ROOT}/sdks/fbb_ws63/src/tools/bin/compiler/riscv/cc_riscv32_musl_100/cc_riscv32_musl_fp/bin/riscv32-linux-musl-gcc",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                ""
+            ],
+            "cStandard": "gnu99",
+            "cppStandard": "gnu++98",
+            "forcedInclude": [
+                "${config:xfusion.XF_ROOT}/sdks/fbb_ws63/src/output/ws63/acore/ws63-liteos-app/mconfig.h"
+            ],
+            "compileCommands": "${config:xfusion.XF_ROOT}/sdks/fbb_ws63/src/output/ws63/acore/ws63-liteos-app/compile_commands.json",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            }
+        }
+    ]
+}

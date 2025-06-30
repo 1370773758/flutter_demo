@@ -1,0 +1,105 @@
+{
+    "msg": "获取数据成功",
+    "code": 200,
+    "data": [
+      {
+        "id": 4,
+        "name": "资深iOS工程师",
+        "cname": "今日头条",
+        "size": "D轮",
+        "salary": "12k-18k",
+        "username": "Kimi",
+        "title": "HR"
+      },
+      {
+        "id": 5,
+        "name": "初级GOLang工程师",
+        "cname": "今日头条",
+        "size": "D轮",
+        "salary": "40K-60K",
+        "username": "Kimi",
+        "title": "HR"
+      },
+      {
+        "id": 6,
+        "name": "中级前端工程师",
+        "cname": "今日头条",
+        "size": "D轮",
+        "salary": "40K-60K",
+        "username": "Kimi",
+        "title": "HR"
+      },
+      {
+        "id": 7,
+        "name": "资深cocos2D工程师",
+        "cname": "今日头条",
+        "size": "D轮",
+        "salary": "40K-60K",
+        "username": "Kimi",
+        "title": "HR"
+      },
+      {
+        "id": 8,
+        "name": "资深U3d工程师",
+        "cname": "今日头条",
+        "size": "D轮",
+        "salary": "40K-60K",
+        "username": "Kimi",
+        "title": "HR"
+      },
+      {
+        "id": 9,
+        "name": "资深PHP工程师",
+        "cname": "今日头条",
+        "size": "D轮",
+        "salary": "40K-60K",
+        "username": "Kimi",
+        "title": "HR"
+      },
+      {
+        "id": 10,
+        "name": "资深数据挖掘工程师",
+        "cname": "今日头条",
+        "size": "D轮",
+        "salary": "40K-60K",
+        "username": "Kimi",
+        "title": "HR"
+      },
+      {
+        "id": 11,
+        "name": "资深运维工程师",
+        "cname": "今日头条",
+        "size": "D轮",
+        "salary": "40K-60K",
+        "username": "Kimi",
+        "title": "HR"
+      },
+      {
+        "id": 12,
+        "name": "资深安卓工程师",
+        "cname": "今日头条",
+        "size": "D轮",
+        "salary": "40K-60K",
+        "username": "Kimi",
+        "title": "HR"
+      },
+      {
+        "id": 13,
+        "name": "移动端架构师",
+        "cname": "银汉游戏",
+        "size": "B轮",
+        "salary": "15K-20K",
+        "username": "刘丽",
+        "title": "人事主管"
+      },
+      {
+        "id": 14,
+        "name": "Java工程师",
+        "cname": "37互娱",
+        "size": "D轮",
+        "salary": "25K-30K",
+        "username": "Reiki",
+        "title": "HR-M"
+      }
+    ]
+}
