@@ -63,127 +63,179 @@ class Data {
     }
 }
 
+// ui
+class HomePage extends StatefulWidget {
+  HomePage({Key? key}) : super(key: key);
 
-void  getInfo() async{
-  final String jsonString = await rootBundle.loadString('json/demo.json');
-  print("jsonString  -- >"+jsonString);
-  // json 转 model
-  PositionInfo positionInfo=PositionInfo.fromJson(json.decode(jsonString));
-
-  String? msg = positionInfo.msg;
-  int? code = positionInfo.code;
-  if(code==200)
-  {
-    _getdata=positionInfo.data!;
-    print(_getdata.toString());
+  @override
+  _HomePageState createState() {
+    return _HomePageState();
   }
 }
 
-// ui
-// Widget getItem(int index)
-// {
-//   Data data = _getdata[index];
-//   return new Padding(padding: EdgeInsets.only(
-//     top: 3.0,
-//     left: 5.0,
-//     right: 5.0,
-//     bottom: 3.0
-//   ),
-//   child: new SizedBox(
-//     child: Card(
-//       elevation: 0.0,
-//       child: Row(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: <Widget>[
-//           new Expanded(
-//             child: new Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               mainAxisSize: MainAxisSize.min,
-//               children: <Widget>[
-//                 new Row(
-//                   children: <Widget>[
-//                     new Padding(padding: 
-//                     EdgeInsets.only(
-//                       top: 10.0,
-//                       left: 10.0,
-//                       bottom: 5.0
-//                     ),
-//                     child: new Text(data!.name!),
-//                     ),
-//                     new Expanded(child: Column(
-//                       crossAxisAlignment: CrossAxisAlignment.end,
-//                       children: <Widget>[
-//                         new Padding(padding: EdgeInsets.only(
-//                           right: 10.0
-//                         ),
-//                         child: Text(
-//                           data!.salary!,
-//                           style: TextStyle(
-//                             color: Colors.red
-//                           ),
-//                         ),)
-//                       ],
-//                     ))
-//                   ],
-//                 )
-//               ],
-//             ),
-            
-//             new Container(
-//               child: new Text(data!.name!+data!.size!),
-//             ))
-//         ],
-//       ),
-//     ),
-//   ),
-//   )
-// }
+class _HomePageState extends State<HomePage> {
 
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("职位", style: TextStyle(
-//         color: Colors.white,
-//         fontSize: 20
-//       ),),
-//       centerTitle: true,
-//       ),
-//       body: Container(
-//         child: new ListView.builder(
-//           itemCount: (_getdata == null)? 0 : _getdata.length,
-//           itemBuilder: (BuildContext context, int position)
-//           {
-//             // return getItem
-//           },
-//           )),
-//       ),
-      
-//     );
-//   }
-// }
+  List  _getdata=[];
+  Data ? data=null ;
+  @override
+  void initState() {
+    super.initState();
+    getInfo();
+  }
 
-// class CounterPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     final bloc = context.read<CounterBloc>();
+  void  getInfo() async{
+    WidgetsFlutterBinding.ensureInitialized();
+    final String jsonString = await rootBundle.loadString('json/demo.json');
+    // print("jsonString  -- >"+jsonString);
+    PositionInfo positionInfo=PositionInfo.fromJson(json.decode(jsonString));
+    setState(() {
 
-//     return Scaffold(
-//       appBar: AppBar(title: Text("BLoC Counter")),
-//       body: Center(
-//         child: BlocBuilder<CounterBloc, CounterState>(
-//           builder: (context, state) => Text('Count: ${state.count}', style: TextStyle(fontSize: 30)),
-//         ),
-//       ),
-//       floatingActionButton: Row(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           FloatingActionButton(onPressed: () => bloc.add(Increment()), child: Icon(Icons.add)),
-//           SizedBox(height: 10),
-//           FloatingActionButton(onPressed: () => bloc.add(Decrement()), child: Icon(Icons.remove)),
-//         ],
-//       ),
-//     );
-//   }
-// }
+      String?msg=positionInfo.msg;
+      int? code =positionInfo.code;
+      if(code==200){
+        _getdata=positionInfo.data!;
+        // print(_getdata.toString());
+      }
+    });
+
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+       appBar: AppBar(
+         title: Text("职位11",style: TextStyle(
+            color: Colors.white,
+            fontSize: 20
+         ),),
+         centerTitle:true,
+       ),
+        body: Container(
+          child: new ListView.builder(
+            itemCount: (_getdata==null)?0:_getdata.length,
+            itemBuilder: (BuildContext context, int position){
+              return getItem(position);
+            },
+          )
+        ),
+    );
+  }
+
+  Widget getItem(int index){
+    data=_getdata[index];
+    return  new Padding(padding: EdgeInsets.only(
+        top: 3.0,
+        left: 5.0,
+        right: 5.0,
+        bottom: 3.0
+    ),
+      child: new SizedBox(
+        child: Card(
+          elevation: 0.0,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              new Expanded(
+                  child: new Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new  Row(
+                        children: <Widget>[
+                          new Padding(padding:
+
+                          EdgeInsets.only(
+                              top: 10.0,
+                              left: 10.0,
+                              bottom: 5.0
+                          ),
+                            child: new Text(data!.name!),
+                          ),
+                          new Expanded(
+                              child:Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: <Widget>[
+                                  new Padding(padding: EdgeInsets.only(
+                                      right: 10.0
+                                  ),
+                                    child:  Text(
+                                      data!.salary!,
+                                      style: TextStyle(
+                                          color: Colors.red
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              )
+                          ),
+                        ],
+                      ),
+                      new Container(
+                        child: new Text(data!.name!+data!.size!,
+                          textAlign: TextAlign.left,
+                          style: new TextStyle(
+                              fontSize: 20.0,
+                              color: Colors.grey
+                          ),
+                        ),
+                        margin: EdgeInsets.only(
+                            top: 5.0,
+                            left: 10.0,
+                            bottom: 5.0
+                        ),
+                      ),
+                      new  Divider(),
+                      new Row(
+                        children: <Widget>[
+
+                          new Padding(padding: EdgeInsets.only(
+                            top: 5.0,
+                            left: 10.0,
+                            right: 5.0,
+                            bottom: 15.0,
+                          ),
+                            child: new Text(
+                              data!.username!+"|"+data!.title!,
+                              style: TextStyle(
+                                  color: new Color.fromARGB(255, 0, 215, 198)
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  )
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home:Scaffold(
+        body: HomePage(),
+      )
+    );
+  }
+}
